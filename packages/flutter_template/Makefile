@@ -11,7 +11,7 @@ PROD_FLAVOR := product
 # setup
 .PHONY: setup
 setup:
-	yarn init -y; yarn add -D prettier
+	fvm flutter pub get
 # packages install
 .PHONY: clean
 clean:

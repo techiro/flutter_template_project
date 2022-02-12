@@ -1,5 +1,21 @@
 {
-  "dart.flutterSdkPath": ".fvm/flutter_sdk",
+  "dart.flutterSdkPath": "../.fvm/flutter_sdk",
+  "files.exclude": {
+    ".dart_tool": false,
+    ".idea": true,
+    "build": true,
+    "node_modules": true,
+    ".flutter-plugins": true,
+    ".flutter-plugins-dependencies": true,
+    ".metadata": true,
+    ".packages": true,
+    "diclog.iml": true,
+    "Dangerfile": true,
+    "Gemfile": true,
+    "l10n.yaml": false,
+    "package-lock.json": true,
+    "pubspec.lock": false
+  },
   // Remove .fvm files from search
   "search.exclude": {
     "**/.fvm": true
