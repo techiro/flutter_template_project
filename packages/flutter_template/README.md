@@ -1,6 +1,9 @@
 # flutter_template
 
 ## Getting Started
+```
+make setup
+```
 
 ## フォルダ構成
 新しいパッケージを追加する場合を考慮したフォルダ構成を作成。
@@ -23,3 +26,8 @@ packages/
 |:--|:--|:--|
 |analysis_options.yaml|静的解析ファイル厳しめの設定|参考: https://medium.com/flutter-jp/analysis-b8dbb19d3978, https://dash-overflow.net/articles/getting_started/|
 |fvm|flutterのバージョン管理|参考: https://zenn.dev/riscait/articles/flutter-version-management|
+
+
+### fvm
+Android StudioのIDEをもし利用する場合は,追加で設定を行う必要がある。
+参考: https://fvm.app/docs/getting_started/configuration#android-studio
