@@ -46,3 +46,7 @@ PNG や SVG に対応。フォントも対応。
 https://docs.flutter.dev/cookbook/design/fonts
 例) Raleway
 https://fonts.google.com/specimen/Raleway?preview.text=Raleway&preview.text_type=custom&query=Raleway
+
+### husky + lint-staged
+
+git commit 時にコードフォーマットを行う。
