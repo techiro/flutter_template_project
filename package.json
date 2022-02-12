@@ -1,0 +1,19 @@
+{
+  "name": "flutter_template_project",
+  "devDependencies": {
+    "lint-staged": "^12.3.3",
+    "prettier": "^2.5.1",
+    "husky": "^7.0.0"
+  },
+  "lint-staged": {
+    "*.dart": [
+      "fvm flutter format"
+    ],
+    "*.{json,yaml,md}": [
+      "prettier --write ."
+    ]
+  },
+  "scripts": {
+    "prepare": "husky install"
+  }
+}

@@ -5,3 +5,5 @@ windows
 build
 .dart_tool
 .idea
+.fvm
+.husky

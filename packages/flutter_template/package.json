@@ -1,9 +1,0 @@
-{
-  "name": "flutter_template",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "devDependencies": {
-    "prettier": "^2.5.1"
-  }
-}
