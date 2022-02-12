@@ -1,8 +1,8 @@
 {
-  "flutterSdkVersion": "stable",
+  "flutterSdkVersion": "2.10.0",
   "flavors": {
-    "develop": "stable",
-    "staging": "stable",
-    "product": "stable"
+    "develop": "2.10.0",
+    "staging": "2.10.0",
+    "product": "2.10.0"
   }
 }
