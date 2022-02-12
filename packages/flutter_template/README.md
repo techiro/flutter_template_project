@@ -50,3 +50,12 @@ https://fonts.google.com/specimen/Raleway?preview.text=Raleway&preview.text_type
 ### husky + lint-staged
 
 git commit 時にコードフォーマットを行う。
+
+### l10n
+
+Localizations in Flutter
+
+参考:
+
+- https://docs.flutter.dev/development/accessibility-and-localization/internationalization
+- https://zenn.dev/ga_ku/articles/1ca06e77125e22

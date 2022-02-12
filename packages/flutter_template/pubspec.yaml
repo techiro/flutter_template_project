@@ -11,6 +11,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.17.0 # localized messages
 
 dev_dependencies:
   build_runner: ^2.1.7 # for flutter gen & ・・・
@@ -23,6 +26,7 @@ dev_dependencies:
 flutter:
   assets:
     - assets/images/
+  generate: true # for localizations
   uses-material-design: true
 
   fonts:
