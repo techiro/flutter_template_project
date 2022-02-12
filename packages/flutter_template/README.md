@@ -30,6 +30,7 @@ packages/
 | :-------------------- | :--------------------------- | :------------------------------------------------------------------------------------------------------------- |
 | analysis_options.yaml | 静的解析ファイル厳しめの設定 | 参考: https://medium.com/flutter-jp/analysis-b8dbb19d3978, https://dash-overflow.net/articles/getting_started/ |
 | fvm                   | flutter のバージョン管理     | 参考: https://zenn.dev/riscait/articles/flutter-version-management                                             |
+| AutoRouter            | FlutterNavigator2.0          | 参考: https://coletiv.com/blog/flutter-navigator-2.0-made-easy-with-auto-router/                               |
 
 ### fvm
 
@@ -59,3 +60,11 @@ Localizations in Flutter
 
 - https://docs.flutter.dev/development/accessibility-and-localization/internationalization
 - https://zenn.dev/ga_ku/articles/1ca06e77125e22
+
+### AutoRouter
+
+Auto Navigation Library
+参考:
+
+- https://coletiv.com/blog/flutter-navigator-2.0-made-easy-with-auto-router/
+- https://pub.dev/packages/auto_route#using-part-builder--new-in-version-300
