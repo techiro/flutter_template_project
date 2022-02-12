@@ -1,2 +1,5 @@
 # FVM related
 .fvm/flutter_sdk
+
+# node
+node_modules

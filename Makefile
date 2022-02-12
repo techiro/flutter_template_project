@@ -6,5 +6,5 @@
 .PHONY: setup
 setup:
 	dart pub global activate fvm
-	dart pub global activate flutter_gen
 	fvm install
+	dart pub global activate flutter_gen
