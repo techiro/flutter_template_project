@@ -1,0 +1,13 @@
+{
+  "@@locale": "en",
+  "helloUserName": "Hello, {userName}!",
+  "@helloUserName": {
+    "description": "The conventional newborn programmer greeting",
+    "placeholders": {
+            "userName": {
+                "type": "String",
+                "example": "John Doe"
+            }
+        }
+  }
+}

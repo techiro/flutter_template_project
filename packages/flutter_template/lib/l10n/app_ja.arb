@@ -1,0 +1,14 @@
+{
+  "@@locale": "ja",
+  "helloUserName": "こんにちは、{userName}!",
+  "@helloUserName": {
+    "description": "あいさつ",
+    "placeholders": {
+            "userName": {
+                "type": "String",
+                "example": "田中 太郎"
+            }
+        }
+  }
+
+}

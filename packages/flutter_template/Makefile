@@ -21,6 +21,7 @@ clean:
 .PHONY: dependencies
 dependencies:
 	fvm flutter pub get
+	fvm flutter gen-l10n
 
 # build-runner
 .PHONY: build-runner
