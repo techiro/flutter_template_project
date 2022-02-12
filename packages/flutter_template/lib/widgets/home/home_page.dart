@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_template/gen/assets.gen.dart';
 import 'package:flutter_template/l10n/l10n.dart';
+import 'package:flutter_template/routes/main_router.gr.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,6 +19,12 @@ class HomePage extends StatelessWidget {
           children: <Widget>[
             flutterGenSample(),
             l10nTextWidget(L10n.of(context)!),
+            TextButton(
+              child: Text('sound'),
+              onPressed: () {
+                AutoRouter.of(context).push(const SecondRoute());
+              },
+            )
           ],
         ),
       ),
