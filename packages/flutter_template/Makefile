@@ -1,9 +1,9 @@
 ################################################################################################
 ## 環境変数 flavor
 ################################################################################################
-DEV_FLAVOR := develop
-STG_FLAVOR := staging
-PROD_FLAVOR := product
+DEV_FLAVOR := dev
+STG_FLAVOR := std
+PROD_FLAVOR := prod
 
 ################################################################################################
 ## 基本コマンド
@@ -47,3 +47,13 @@ run-dev:
 .PHONY: open-runner
 open-runner:
 	open ios/Runner.xcworkspace
+
+# icon
+.PHONY: icon
+icon:
+	rm -rf ios/Runner/Assets.xcassets/AppIcon-${DEV_FLAVOR}.appiconset
+	rm -rf ios/Runner/Assets.xcassets/AppIcon-${STG_FLAVOR}.appiconset
+	rm -rf ios/Runner/Assets.xcassets/AppIcon-${PROD_FLAVOR}.appiconset
+	rm -rf android/app/src/${DEV_FLAVOR}/res/mipmap**/
+	rm -rf android/app/src/${STG_FLAVOR}/res/mipmap**/
+	rm -rf android/app/src/${PROD_FLAVOR}/res/mipmap**/
