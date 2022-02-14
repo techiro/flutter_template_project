@@ -37,3 +37,13 @@ build-runner-watch:
 .PHONY: run
 run:
 	fvm flutter run
+
+# run dev
+.PHONY: run-dev
+run-dev:
+	fvm flutter run --dart-define=FLAVOR=${DEV_FLAVOR} --target lib/main.dart
+
+# open-runner
+.PHONY: open-runner
+open-runner:
+	open ios/Runner.xcworkspace
