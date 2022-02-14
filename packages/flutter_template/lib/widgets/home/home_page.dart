@@ -1,5 +1,5 @@
-import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_template/gen/assets.gen.dart';
 import 'package:flutter_template/l10n/l10n.dart';
@@ -16,7 +16,9 @@ class HomePage extends HookConsumerWidget {
         title: const Text('Flutter Template'),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => {AdaptiveTheme.of(context).setSystem()},
+        onPressed: () => {
+          Fimber.d('FloatingActionButton pressed'),
+        },
         child: const Icon(Icons.add),
       ),
       body: Center(
@@ -26,7 +28,7 @@ class HomePage extends HookConsumerWidget {
             flutterGenSample(),
             l10nTextWidget(L10n.of(context)!),
             TextButton(
-              child: Text('move to second'),
+              child: const Text('move to second'),
               onPressed: () {
                 AutoRouter.of(context).push(const SecondRoute());
               },
