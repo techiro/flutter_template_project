@@ -5,6 +5,9 @@ extension ThemeDataEx on ThemeData {
     return ThemeData(
       brightness: Brightness.light,
       primarySwatch: Colors.green,
+      primaryColor: Colors.yellow,
+      secondaryHeaderColor: Colors.amber,
+      backgroundColor: Colors.white,
     );
   }
 
@@ -12,6 +15,9 @@ extension ThemeDataEx on ThemeData {
     return ThemeData(
       brightness: Brightness.dark,
       primarySwatch: Colors.red,
+      primaryColor: Colors.yellow,
+      secondaryHeaderColor: Colors.amber,
+      backgroundColor: Colors.white,
     );
   }
 }
