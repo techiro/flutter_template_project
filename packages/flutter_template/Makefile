@@ -57,3 +57,4 @@ icon:
 	rm -rf android/app/src/${DEV_FLAVOR}/res/mipmap**/
 	rm -rf android/app/src/${STG_FLAVOR}/res/mipmap**/
 	rm -rf android/app/src/${PROD_FLAVOR}/res/mipmap**/
+	fvm flutter pub run flutter_launcher_icons:main
