@@ -1,17 +1,23 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_template/gen/assets.gen.dart';
 import 'package:flutter_template/l10n/l10n.dart';
 import 'package:flutter_template/routes/main_router.gr.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends HookConsumerWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flutter Template'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => {AdaptiveTheme.of(context).setSystem()},
+        child: const Icon(Icons.add),
       ),
       body: Center(
         child: Column(
@@ -20,7 +26,7 @@ class HomePage extends StatelessWidget {
             flutterGenSample(),
             l10nTextWidget(L10n.of(context)!),
             TextButton(
-              child: Text('sound'),
+              child: Text('move to second'),
               onPressed: () {
                 AutoRouter.of(context).push(const SecondRoute());
               },
