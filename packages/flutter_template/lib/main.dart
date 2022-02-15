@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_template/l10n/l10n.dart';
 import 'package:flutter_template/routes/main_router.gr.dart';
 import 'package:flutter_template/theme/theme_data_ex.dart';
+import 'package:flutter_template/utils/constants.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -14,6 +15,7 @@ void main() {
   // Fimber
   if (!kReleaseMode) {
     Fimber.plantTree(DebugTree());
+    print(Constants.flavor);
   } else {
     // リリースの時はログ無効化
     debugPrint = (message, {wrapWidth}) {};
