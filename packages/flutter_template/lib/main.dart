@@ -9,6 +9,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_template/l10n/l10n.dart';
 import 'package:flutter_template/routes/main_router.gr.dart';
 import 'package:flutter_template/theme/theme_data_ex.dart';
+import 'package:flutter_template/utils/environment.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -26,7 +27,7 @@ Future<void> main() async {
   runZonedGuarded(() {
     runApp(
       DevicePreview(
-        enabled: !kReleaseMode,
+        enabled: !kReleaseMode && (Environment.enablePreview == 'true'),
         builder: (context) => const ProviderScope(child: MyApp()),
       ),
     );

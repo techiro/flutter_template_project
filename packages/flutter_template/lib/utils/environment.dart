@@ -1,6 +1,5 @@
-import 'dart:io' show Platform;
-
 class Environment {
-  static const flavor = String.fromEnvironment('FLAVOR');
-  static const enablePreview = String.fromEnvironment('PREVIEW');
+  static const flavor = String.fromEnvironment('FLAVOR', defaultValue: 'prod');
+  static const enablePreview =
+      String.fromEnvironment('PREVIEW', defaultValue: 'false');
 }
