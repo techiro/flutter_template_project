@@ -8,7 +8,7 @@ class Constants {
       case Flavor.dev:
         return Constants._dev();
       case Flavor.stg:
-        return Constants._std();
+        return Constants._stg();
       case Flavor.prod:
       default:
         return Constants._prod();
@@ -18,7 +18,7 @@ class Constants {
   factory Constants._dev() {
     return const Constants._(baseUrl: 'http://dev');
   }
-  factory Constants._std() {
+  factory Constants._stg() {
     return const Constants._(baseUrl: 'http://std');
   }
 
@@ -33,4 +33,8 @@ class Constants {
   static Flavor get flavor => Flavor.values.byName(
         const String.fromEnvironment('FLAVOR', defaultValue: 'dev'),
       );
+
+  /// Device Previewを有効化するかどうか
+  static bool get enablePreview =>
+      const bool.fromEnvironment('PREVIEW', defaultValue: false);
 }

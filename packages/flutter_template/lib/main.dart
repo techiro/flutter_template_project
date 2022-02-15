@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:fimber/fimber.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -15,16 +16,26 @@ void main() {
   // Fimber
   if (!kReleaseMode) {
     Fimber.plantTree(DebugTree());
-    print(Constants.flavor);
   } else {
     // リリースの時はログ無効化
     debugPrint = (message, {wrapWidth}) {};
   }
 
   runZonedGuarded(
-    () => runApp(ProviderScope(
-      child: MyApp(),
-    )),
+    () => runApp(
+      ProviderScope(
+        child: DevicePreview(
+          enabled: !kReleaseMode && Constants.enablePreview,
+          availableLocales: const [
+            Locale('en_US'),
+            Locale('ja_JP'),
+          ],
+          builder: (context) {
+            return MyApp();
+          },
+        ),
+      ),
+    ),
     (error, stackTrace) {
       Fimber.e(error.toString());
     },
@@ -44,6 +55,8 @@ class MyApp extends HookConsumerWidget {
       dark: ThemeDataEx.customDark(),
       initial: AdaptiveThemeMode.system,
       builder: (theme, darkTheme) => MaterialApp.router(
+        useInheritedMediaQuery: true,
+        locale: DevicePreview.locale(context),
         routeInformationParser: _mainRouter.defaultRouteParser(),
         routerDelegate: _mainRouter.delegate(),
         title: 'Flutter Demo',
