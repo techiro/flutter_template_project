@@ -19,7 +19,7 @@ class Constants {
     return const Constants._(baseUrl: 'http://dev');
   }
   factory Constants._stg() {
-    return const Constants._(baseUrl: 'http://std');
+    return const Constants._(baseUrl: 'http://stg');
   }
 
   factory Constants._prod() {
@@ -29,12 +29,13 @@ class Constants {
   /// エンドポイント
   final String baseUrl;
 
-  /// フレーバー
-  static Flavor get flavor => Flavor.values.byName(
-        const String.fromEnvironment('FLAVOR', defaultValue: 'dev'),
-      );
+  /// フレーバー const 指定をしないといけない。 #https://github.com/flutter/flutter/issues/55870
+  static const flavorString =
+      String.fromEnvironment('FLAVOR', defaultValue: 'dev');
+
+  static Flavor get flavor => Flavor.values.byName(flavorString);
 
   /// Device Previewを有効化するかどうか
-  static bool get enablePreview =>
-      const bool.fromEnvironment('PREVIEW', defaultValue: false);
+  static const enablePreview =
+      bool.fromEnvironment('PREVIEW', defaultValue: false);
 }

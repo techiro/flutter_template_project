@@ -29,13 +29,13 @@
       "name": "Run stg",
       "request": "launch",
       "type": "dart",
-      "args": ["--dart-define=FLAVOR=stg"]
+      "args": ["--debug", "--dart-define=FLAVOR=stg"]
     },
     {
       "name": "Run prod",
       "request": "launch",
       "type": "dart",
-      "args": ["--dart-define=FLAVOR=prod"]
+      "args": ["--debug", "--dart-define=FLAVOR=prod"]
     }
   ]
 }

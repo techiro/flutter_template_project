@@ -5,14 +5,16 @@ import 'package:device_preview/device_preview.dart';
 import 'package:fimber/fimber.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_template/l10n/l10n.dart';
 import 'package:flutter_template/routes/main_router.gr.dart';
 import 'package:flutter_template/theme/theme_data_ex.dart';
-import 'package:flutter_template/utils/constants.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   // Fimber
   if (!kReleaseMode) {
     Fimber.plantTree(DebugTree());
@@ -21,35 +23,26 @@ void main() {
     debugPrint = (message, {wrapWidth}) {};
   }
 
-  runZonedGuarded(
-    () => runApp(
-      ProviderScope(
-        child: DevicePreview(
-          enabled: !kReleaseMode && Constants.enablePreview,
-          availableLocales: const [
-            Locale('en_US'),
-            Locale('ja_JP'),
-          ],
-          builder: (context) {
-            return MyApp();
-          },
-        ),
+  runZonedGuarded(() {
+    runApp(
+      DevicePreview(
+        enabled: !kReleaseMode,
+        builder: (context) => const ProviderScope(child: MyApp()),
       ),
-    ),
-    (error, stackTrace) {
-      Fimber.e(error.toString());
-    },
-  );
+    );
+  }, (error, stackTrace) {
+    Fimber.e(error.toString());
+  });
 }
 
 class MyApp extends HookConsumerWidget {
-  MyApp({Key? key}) : super(key: key);
-
-  final _mainRouter = MainRouter();
+  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    //useMemoizedしないと、ホットリロード時に、画面が読み込まれない。
+    final mainRouter = useMemoized<MainRouter>(MainRouter.new);
     return AdaptiveTheme(
       light: ThemeDataEx.customLight(),
       dark: ThemeDataEx.customDark(),
@@ -57,8 +50,8 @@ class MyApp extends HookConsumerWidget {
       builder: (theme, darkTheme) => MaterialApp.router(
         useInheritedMediaQuery: true,
         locale: DevicePreview.locale(context),
-        routeInformationParser: _mainRouter.defaultRouteParser(),
-        routerDelegate: _mainRouter.delegate(),
+        routeInformationParser: mainRouter.defaultRouteParser(),
+        routerDelegate: mainRouter.delegate(),
         title: 'Flutter Demo',
         localizationsDelegates: L10n.localizationsDelegates,
         supportedLocales: L10n.supportedLocales,
