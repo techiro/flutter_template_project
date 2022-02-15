@@ -31,9 +31,9 @@ class Constants {
 
   /// フレーバー const 指定をしないといけない。 #https://github.com/flutter/flutter/issues/55870
   static const flavorString =
-      String.fromEnvironment('FLAVOR', defaultValue: 'dev');
+      String.fromEnvironment('FLAVOR', defaultValue: 'prod');
 
-  static Flavor get flavor => Flavor.values.byName(flavorString);
+  static final flavor = Flavor.values.byName(flavorString);
 
   /// Device Previewを有効化するかどうか
   static const enablePreview =
