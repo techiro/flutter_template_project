@@ -6,11 +6,52 @@
 git clone https://github.com/techiro/flutter_template_project.git
 cd flutter_template_project
 make setup
-cd packages/flutter_template
+cd packages
+cp -r flutter_template/ 'your_app_name'
+cd your_app_name
 make setup
 make run-dev
+```
+
+Replace BundleID name `com.example.flutterTemplate` to `your domain`
+Do a full-text search and replace.
+
+## Replace flutter_template app
 
 ```
+cp -r flutter_template/ 'your_app_name'
+```
+
+## Replace dependencies package name
+
+フラッターアプリのパッケージ依存は,pubspec.yaml に依存しています。
+まず、`pubspec.yaml`を開き、依存を書き換えてください。
+
+```
+- name: 'flutter_template'
++ name: 'your_app_name'
+```
+
+次に、flutter_template で全文検索を行い`your_app_name`に置き換えてください。
+Replace `flutter_template` to `your_app_name`
+
+```
+example) main.dart
+- import 'package:flutter_template/theme/theme_data_ex.dart';
+- import 'package:flutter_template/utils/environment.dart';
++ import 'package:your_app_name/theme/theme_data_ex.dart';
++ import 'package:your_app_name/utils/environment.dart';
+```
+
+## Replace your app bundle id `com.**.**app`
+
+- com.example.flutter_template
+- com.example.flutterTemplate
+
+## Replaec your app name `**app`
+
+- F_Template
+- f_template
 
 ## フォルダ構成
 
@@ -31,7 +72,6 @@ packages/
     pubspec.yaml
     ...
 ```
-
 
 ## library
 
@@ -77,8 +117,6 @@ Auto Navigation Library
 
 - https://coletiv.com/blog/flutter-navigator-2.0-made-easy-with-auto-router/
 - https://pub.dev/packages/auto_route#using-part-builder--new-in-version-300
-
-
 
 ## Architecture
 
