@@ -10,7 +10,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "${SRCROOT}/scripts/retrieve_dart_defines.sh&#10;">
+               scriptText = "#!/bin/sh&#10;echo $DART_DEFINES | tr &apos;,&apos; &apos;\n&apos; | while read -r line; do&#10;  echo $line | base64 -d | tr &apos;,&apos; &apos;\n&apos; | xargs -I@ bash -c &quot;echo @ | grep &apos;FLAVOR&apos; | sed &apos;s/.*=//&apos;&quot;&#10;done | (&#10;  read -r flavor&#10;  if [ &quot;$flavor&quot; = &quot;&quot; ]; then&#10;    # SRCROOT = ./flutter_template/ios&#10;    echo &quot;#include \&quot;dev.xcconfig\&quot;\n//FLAVOR&#x306f;&#x53cd;&#x6620;&#x3055;&#x308c;&#x3066;&#x3044;&#x306a;&#x3044;&quot; &gt;$SRCROOT/Flutter/DartDefine.xcconfig&#10;  else&#10;    echo &quot;#include \&quot;$flavor.xcconfig\&quot;&quot; &gt;$SRCROOT/Flutter/DartDefine.xcconfig&#10;#    echo $flavor | tee $SRCROOT/log.txt # &#x30c7;&#x30d0;&#x30c3;&#x30af;&#x7528;&#10;    # \cp -f $SRCROOT/$flavor/GoogleService-Info.plist $SRCROOT/Runner/GoogleService-Info.plist&#10;  fi&#10;)&#10;&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"

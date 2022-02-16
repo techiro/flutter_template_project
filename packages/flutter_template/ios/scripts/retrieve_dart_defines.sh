@@ -1,4 +1,6 @@
 #!/bin/sh
+#MARK: pre-actionに直接記入しないと、動かない。
+echo "実行されている" | tee $SRCROOT/log.txt
 echo $DART_DEFINES | tr ',' '\n' | while read -r line; do
   echo $line | base64 -d | tr ',' '\n' | xargs -I@ bash -c "echo @ | grep 'FLAVOR' | sed 's/.*=//'"
 done | (
