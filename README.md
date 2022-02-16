@@ -2,6 +2,17 @@
 
 ## Getting Started
 
+```
+git clone 
+cd flutter_template_project
+make setup
+cd packages/flutter_template
+make setup
+make run-dev
+
+```
+
+
 ## フォルダ構成
 
 新しいパッケージを追加する場合を考慮したフォルダ構成を作成。
